@@ -3,21 +3,18 @@
 /********************** MODIFY README FILE *****************************/
 
 
-float addTwoNbrs(float nbr1, float nbr2) { return nbr1 + nbr2; }
-float subTwoNbrs(float nbr1, float nbr2) { return nbr1 - nbr2; }
-float multTwoNbrs(float nbr1, float nbr2) { return nbr1 * nbr2; }
-float divTwoNbrs(float nbr1, float nbr2) { return nbr1 / nbr2; }
-int twoNbrsModulus(int nbr1, int nbr2) { return nbr1 % nbr2; }
+// todo : bases conversion
 
 void main(){
 	int operation, n1, n2, menu=-1;
 	float nbr1, nbr2;
 	while(menu != 0){
 		operation=n1=n2=nbr1=nbr2=0;
-		printf("**********Menu**********\n\n");
+		printf("\n**********Menu**********\n\n");
 		printf("What kind of operations would like to perform ?\n");
 		printf("1 -> Arithmetic operations\n");
 		printf("2 -> Relative operations\n");
+		printf("3 -> Bitwise operations\n");
 		printf("0 -> Quit\n");
 		printf("Your choice : ");
 		scanf("%d", &menu);
@@ -50,26 +47,26 @@ void main(){
 						
 			switch(operation){
 				case 1:
-					printf("%.3f + %.3f = %.3f", nbr1, nbr2, addTwoNbrs(nbr1, nbr2));
+					printf("%.3f + %.3f = %.3f", nbr1, nbr2, nbr1 + nbr2);
 					break;
 				case 2:
-					printf("%.3f + %.3f = %.3f", nbr1, nbr2, subTwoNbrs(nbr1, nbr2));
+					printf("%.3f - %.3f = %.3f", nbr1, nbr2, nbr1 - nbr2);
 					break;
 				case 3:
-					printf("%.3f + %.3f = %.3f", nbr1, nbr2, multTwoNbrs(nbr1, nbr2));
+					printf("%.3f * %.3f = %.3f", nbr1, nbr2, nbr1 * nbr2);
 					break;
 				case 4:
-					if(nbr1) printf("%.3f + %.3f = %.3f", nbr1, nbr2, divTwoNbrs(nbr1, nbr2));
-					else printf("nbr1 can't be null!!!");
+					if(nbr2) printf("%.3f / %.3f = %.3f", nbr1, nbr2, nbr1 / nbr2);
+					else printf("the second number can't be null!!!");
 					break;
 				case 5:
-					printf("%d %% %d = %d", n1, n2, twoNbrsModulus(n1, n2));
+					printf("%d %% %d = %d", n1, n2, n1 % n2);
 					break;
 			}
 		}
 		else if(menu == 2){
 			system("cls");
-			while(operation < 1 || operation > 5){
+			while(operation < 1 || operation > 3){
 				printf("Choose the operation to perform:\n");
 				printf("1 -> Equality\n");
 				printf("2 -> Greater than\n");
@@ -90,6 +87,27 @@ void main(){
 			}
 			else if(operation == 3){
 				printf("%.3f < %.3f -> %s\n", nbr1, nbr2, (nbr1<nbr2) ? "true" : "false");
+			}
+		}
+		else if(menu == 3){
+			system("cls");
+			while(operation < 1 || operation > 3){
+				printf("Choose the operation to perform:\n");
+				printf("1 -> AND &\n");
+				printf("2 -> OR |\n");
+				printf("Your choice : ");
+				scanf("%d", &operation);
+			}
+			printf("Enter either 1 or 0 for the first number : ");
+			scanf("%d", &n1);
+			printf("Enter either 1 or 0 for the second number : ");
+			scanf("%d", &n2);
+			
+			if(operation == 1){
+				printf("%d & %d -> %d\n", n1, n2, n1&n2);
+			}
+			else if(operation == 2){
+				printf("%d | %d -> %d\n", n1, n2, n1|n2);
 			}
 		}
 	}
