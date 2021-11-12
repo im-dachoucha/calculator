@@ -1,2 +1,2 @@
 # calculator
-simple calculator to perform arithmetic operations
+simple calculator to perform arithmetic relational operations
